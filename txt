@@ -1,0 +1,59 @@
+// add cart
+
+
+// "peeled-shrimp": {
+//         "imgUrl": "https://firebasestorage.googleapis.com/v0/b/grocery-app-store-57f4d.appspot.com/o/productImgs%2FCooked-Peeled-Deveined-Shrimp-2lb.jpg?alt=media&token=c7268de4-1132-4540-8b88-e885e503b431",
+//         "maincategory": "fish-meat",
+//         "price": 12,
+//         "name": "peeled deveined shrimp",
+//         "weight": "2Ib",
+//         "details": ["shrimp", "fish"],
+//         "id": 6,
+//         "stock": 85,
+//         "subcategory": "fish",
+//         "__collections__": {}
+//       },
+//       "salmon-fillet": {
+//         "imgUrl": "https://firebasestorage.googleapis.com/v0/b/grocery-app-store-57f4d.appspot.com/o/productImgs%2Fsalmon%20fillet.jpg?alt=media&token=d681be9b-3db3-4036-b0c2-526218ffb99a",
+//         "maincategory": "fish-meat",
+//         "price": 12,
+//         "name": "salmon fillet portion",
+//         "weight": "6oz",
+//         "details": ["salmon", "fish"],
+//         "id": 4,
+//         "stock": 75,
+//         "subcategory": "fish",
+//         "__collections__": {}
+//       },
+//       "wild-king": {
+//         "imgUrl": "https://firebasestorage.googleapis.com/v0/b/grocery-app-store-57f4d.appspot.com/o/productImgs%2FFresh-Wild-King-Salmon-Steak-1lb.jpg?alt=media&token=de8beef7-b2c5-4ac4-a29f-e406013d076a",
+//         "maincategory": "fish-meat",
+//         "price": 12,
+//         "name": "wild king salmon steak",
+//         "weight": "1Ib",
+//         "details": ["salmon", "fish"],
+//         "id": 1,
+//         "stock": 100,
+//         "subcategory": "fish",
+//         "__collections__": {}
+//       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
