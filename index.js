@@ -23,6 +23,10 @@ app.use(express.json());
 
 app.use(paystackMiddleware);
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the Iscoli E-commerce API!");
+});
+
 app.use(
   expressSession({
     secret: "your-secret-key",
