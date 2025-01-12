@@ -13,9 +13,25 @@ router.get("/", (req, res) => {
   res.render("home");
 });
 
+
+
 //paystack verify payment
 router.post("/verify/:ref", verify);
 
-router.get("/confirmation", confirmation);
+router.get("/confirmation", (req, res) => {
+const output = req.session.output;
+
+console.log("===========confirmation==============");
+if (!output) {
+  console.error("No session output available");
+  return res.status(400).send("No session data available for confirmation");
+}
+
+
+  console.log("===========confirmation==============");
+ 
+
+res.render("confirmation", { ...output });
+});
 
 export default router

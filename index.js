@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import userRoute from "./routes/userRoute.js";
 import cartRoute from "./routes/cartRoute.js";
-import payStackRoute from   './routes/paymentRoute.js' 
+import payStackRoute from "./routes/paymentRoute.js";
 import errorHandler from "./middleware/errorHandle.js";
 import paystackMiddleware from "./middleware/paystackMiddleWare.js";
 import connectDb from "./config/dbConnection.js";
@@ -10,15 +10,9 @@ import expressSession from "express-session";
 import passport from "passport";
 import jwt from "jsonwebtoken";
 
-
-
-
-import './middleware/passport.js';
+import "./middleware/passport.js";
 dotenv.config();
-connectDb()
-
-
-
+connectDb();
 
 const app = express();
 
@@ -27,19 +21,16 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 // app.use("/api/contacts", require("./routes/contactRoutes"));
 
-app.use(paystackMiddleware); 
- 
+app.use(paystackMiddleware);
 
 app.use(
   expressSession({
     secret: "your-secret-key",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }, 
+    cookie: { secure: false },
   })
 );
-
-
 
 //routes
 
@@ -84,6 +75,5 @@ app.get(
 app.use(errorHandler);
 
 app.listen(port, () => {
-  console.log(`Server is run on express ${port}`); 
+  console.log(`Server is run on express ${port}`);
 });
-

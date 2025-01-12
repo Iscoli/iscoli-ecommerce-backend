@@ -2,15 +2,26 @@ import express from "express";
 import session from "express-session";
 import dotenv from "dotenv";
 import path from "path";
+import { fileURLToPath } from "url";
 
 // Load environment variables
 dotenv.config();
 
+
+
+
+// Cross-platform solution to define __dirname
+const __filename = fileURLToPath(import.meta.url); // Get the current file path
+const __dirname = path.dirname(__filename); 
+
+
+
+
 // Create middleware instance
 const middleware = express();
 
-// Get the directory name of the current file (equivalent to __dirname)
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
+
 
 // Configure session
 middleware.use(
@@ -19,25 +30,23 @@ middleware.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 10 * 1000, // Set the cookie's maxAge to 10 seconds (in milliseconds)
+      maxAge: 10 * 60 * 1000, // Set the cookie's maxAge to 10 minutes
     },
   })
 );
 
-// Set up static file serving
-middleware.use(express.static(path.join(__dirname, "../public"))); // This will now work
 
+// Serve static files
+middleware.use(express.static(path.join(__dirname, "../public")));
+
+// Parse incoming requests
 middleware.use(express.urlencoded({ extended: true }));
 middleware.use(express.json());
 
-// EJS setup
+// Set up EJS as the view engine
 middleware.set("view engine", "ejs");
 
-// Absolute Directory Path
+// Set views directory
 middleware.set("views", path.join(__dirname, "../views"));
 
-middleware.use(express.urlencoded({ extended: true }));
-middleware.use(express.json());
-
-// Export middleware
 export default middleware;
