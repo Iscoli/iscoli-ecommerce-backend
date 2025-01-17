@@ -1,0 +1,181 @@
+ try {
+    const {
+      senderName,
+      items,
+      senderAddress,
+      firstName,
+      lastName,
+      email,
+      address,
+      country,
+      code,
+      city,
+      number,
+      totalPriceInCart,
+      totalPriceToPay,
+      shipping_cost,
+      order_id,
+      invoice,
+      payment_option,
+      discountPrice,
+      status,
+    } = req.body;{
+    "senderName": "Yusuf Ismail",
+    "items": [
+        {
+            "id": 60,
+            "count": 2,
+            "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUN3Ue_sCrwTQN_MwACHoIpQogHhQLGvXHy2L5gQaiXw&s",
+            "price": 13,
+            "name": "golden garden blueberry plum",
+            "discountValue": 0
+        },
+        {
+            "id": 8,
+            "count": 2,
+            "imgUrl": "https://firebasestorage.googleapis.com/v0/b/grocery-app-store-57f4d.appspot.com/o/productImgs%2FNiman-Ranch-Angus-Beef-Stew-Meat-per-lb.jpg?alt=media&token=c78f13b7-33e4-4251-8f34-4601d82b469f",
+            "price": 18,
+            "name": "beef stew",
+            "discountValue": 0
+        },
+        {
+            "id": 27,
+            "count": 2,
+            "imgUrl": "https://propagationplace.co.uk/pp/wp-content/uploads/Cabbage-Chinese-Wong-Bok-vegetable-plants-1-1000x1000.jpg",
+            "price": 15,
+            "name": "bok choy cabbage",
+            "discountValue": 0
+        }
+    ],
+    "senderAddress": "Otefun garage oshogbo",
+    "firstName": "Ismail",
+    "lastName": "Yusuf",
+    "email": "yi016679@gmail.com",
+    "address": "Otefun garage oshogbo",
+    "country": "Nigeria",
+    "code": "230001",
+    "city": "Oshogbo",
+    "number": "+2348166402589",
+    "totalPriceInCart": 92,
+    "totalPriceToPay": 122,
+    "shipping_cost": "30.00",
+    "order_id": "da01746e-235e-4023-ab71-14c205525293",
+    "invoice": 86078,
+    "payment_option": "Payment On Delivery",
+    "discountPrice": 0,
+    "status": "pending",
+    "userRef": "3iM7AY1ThNUUzFUlQuMs5cIjWdb2",
+    "created_at": 1737061103120
+}
+  const userId = req.user.id;
+  console.log("user id", userId)
+    if (!products || Object.keys(products).length === 0) {
+      res.status(400);
+      throw new Error("No products provided");
+    }
+
+    // Create new invoice document
+    const newInvoice = new Invoice({
+      senderName,
+      items,
+      senderAddress,
+      firstName,
+      lastName,
+      email,
+      address,
+      country,
+      code,
+      city,
+      number,
+      totalPriceInCart,
+      totalPriceToPay,
+      shipping_cost,
+      order_id,
+      invoice,
+      payment_option,
+      discountPrice,
+      status,
+      userRef,
+      created_at: new Date().getTime(),
+    });
+
+    // Save invoice to the database
+    await newInvoice.save();
+
+    // Respond with the created invoice
+    res.status(201).json({ success: true, Invoice: newInvoice });
+  } catch (error) {
+    console.error("Error creating invoice:", error);
+    res
+      .status(500)
+      .json({ success: false, message: "Failed to create invoice" });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "senderName": "Yusuf Ismail",
+    "items": [
+        {
+            "id": 60,
+            "count": 2,
+            "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUN3Ue_sCrwTQN_MwACHoIpQogHhQLGvXHy2L5gQaiXw&s",
+            "price": 13,
+            "name": "golden garden blueberry plum",
+            "discountValue": 0
+        },
+        {
+            "id": 8,
+            "count": 2,
+            "imgUrl": "https://firebasestorage.googleapis.com/v0/b/grocery-app-store-57f4d.appspot.com/o/productImgs%2FNiman-Ranch-Angus-Beef-Stew-Meat-per-lb.jpg?alt=media&token=c78f13b7-33e4-4251-8f34-4601d82b469f",
+            "price": 18,
+            "name": "beef stew",
+            "discountValue": 0
+        },
+        {
+            "id": 27,
+            "count": 2,
+            "imgUrl": "https://propagationplace.co.uk/pp/wp-content/uploads/Cabbage-Chinese-Wong-Bok-vegetable-plants-1-1000x1000.jpg",
+            "price": 15,
+            "name": "bok choy cabbage",
+            "discountValue": 0
+        }
+    ],
+    "senderAddress": "Otefun garage oshogbo",
+    "firstName": "Ismail",
+    "lastName": "Yusuf",
+    "email": "yi016679@gmail.com",
+    "address": "Otefun garage oshogbo",
+    "country": "Nigeria",
+    "code": "230001",
+    "city": "Oshogbo",
+    "number": "+2348166402589",
+    "totalPriceInCart": 92,
+    "totalPriceToPay": 122,
+    "shipping_cost": "30.00",
+    "order_id": "da01746e-235e-4023-ab71-14c205525293",
+    "invoice": 86078,
+    "payment_option": "Payment On Delivery",
+    "discountPrice": 0,
+    "status": "pending",
+    "userRef": "3iM7AY1ThNUUzFUlQuMs5cIjWdb2",
+    "created_at": 1737061103120
+}

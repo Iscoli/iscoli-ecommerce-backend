@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import userRoute from "./routes/userRoute.js";
 import cartRoute from "./routes/cartRoute.js";
 import payStackRoute from "./routes/paymentRoute.js";
+import invoiceRoute from "./routes/invoiceRoute.js";
 import errorHandler from "./middleware/errorHandle.js";
 import paystackMiddleware from "./middleware/paystackMiddleWare.js";
 import connectDb from "./config/dbConnection.js";
@@ -45,6 +46,7 @@ app.get("/success", (req, res) => {
   res.send(`Welcome ${req.user.email}`);
 });
 
+app.use("/api/invoice", invoiceRoute);
 app.use("/api/payments", payStackRoute);
 app.use("/api/users", userRoute);
 app.use("/api/cart", cartRoute);
